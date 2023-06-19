@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5fK-u5-mW2">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Screen View Controller-->
+        <scene sceneID="pyI-Jh-EuV">
+            <objects>
+                <viewController storyboardIdentifier="nftscreen_vc" id="5fK-u5-mW2" customClass="NFTScreenViewController" customModule="NFTs_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ghV-8v-DVe">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZoZ-Ql-xJf">
+                                <rect key="frame" x="0.0" y="101" width="393" height="717"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTableViewCell" id="Wuf-jO-MAk" customClass="CustomTableViewCell" customModule="NFTs_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wuf-jO-MAk" id="a0f-Xw-uCC">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NFTs Screen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHf-Xs-Drq">
+                                <rect key="frame" x="105" y="59" width="182" height="34"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="l3Q-NI-3UM"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="ZoZ-Ql-xJf" firstAttribute="top" secondItem="yHf-Xs-Drq" secondAttribute="bottom" constant="8" symbolic="YES" id="6PW-Pi-tVH"/>
+                            <constraint firstItem="yHf-Xs-Drq" firstAttribute="leading" secondItem="l3Q-NI-3UM" secondAttribute="leading" constant="105" id="AcK-GG-LWd"/>
+                            <constraint firstItem="l3Q-NI-3UM" firstAttribute="trailing" secondItem="yHf-Xs-Drq" secondAttribute="trailing" constant="106" id="LP9-9Z-kmR"/>
+                            <constraint firstItem="ZoZ-Ql-xJf" firstAttribute="leading" secondItem="l3Q-NI-3UM" secondAttribute="leading" id="Ti0-cf-c4T"/>
+                            <constraint firstItem="l3Q-NI-3UM" firstAttribute="trailing" secondItem="ZoZ-Ql-xJf" secondAttribute="trailing" id="d1V-Pq-f3X"/>
+                            <constraint firstItem="l3Q-NI-3UM" firstAttribute="bottom" secondItem="ZoZ-Ql-xJf" secondAttribute="bottom" id="jtP-tr-OLe"/>
+                            <constraint firstItem="yHf-Xs-Drq" firstAttribute="top" secondItem="l3Q-NI-3UM" secondAttribute="top" id="qlv-Vk-GUK"/>
+                            <constraint firstItem="ZoZ-Ql-xJf" firstAttribute="top" secondItem="yHf-Xs-Drq" secondAttribute="bottom" constant="8" symbolic="YES" id="w66-eS-CAt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="TOv-gq-eo9"/>
+                    <connections>
+                        <outlet property="tableView" destination="ZoZ-Ql-xJf" id="njU-lg-vcd"/>
+                        <segue destination="DU9-BA-oWx" kind="push" identifier="goToNFTDetailsStoryboard" id="mun-tn-UG2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qR6-f9-X6g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-764" y="-19"/>
+        </scene>
+        <!--nftdetails_vc-->
+        <scene sceneID="2Lz-kp-ueU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NFTDetailsStoryboard" referencedIdentifier="nftdetails_vc" id="DU9-BA-oWx" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Tzf-LS-eVj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yev-8B-m5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-215" y="-65"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
