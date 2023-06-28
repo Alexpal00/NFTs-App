@@ -9,13 +9,19 @@ import UIKit
 
 class NFTDetailsViewController: UIViewController {
 
+    // MARK: - IBPProperties
+    
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var creationdateLbl: UILabel!
     @IBOutlet weak var idLbl: UILabel!
     @IBOutlet weak var numsalesLbl: UILabel!
     @IBOutlet weak var nftImg: UIImageView!
     
+    // MARK: - Properties
+    
     var nft: NftsResponse.NFT?
+    
+    // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,19 +8,12 @@
 import Foundation
 
 struct NftsResponse: Codable {
-    var title_nfts: [String]
+    var title_nfts: [NFTTitle]
     var nfts: [NFT]
     
-    enum ArraysKeys: String, CodingKey {
-        case title_nfts
-        case nfts
-    }
-    
-    init(from decoder: Decoder) throws {
-        let ArrayContainer = try decoder.container(keyedBy: ArraysKeys.self)
-        
-        self.title_nfts = try ArrayContainer.decode([String].self, forKey: .title_nfts)
-        self.nfts = try ArrayContainer.decode([NFT].self, forKey: .nfts)
+    struct NFTTitle: Codable {
+        let name: String
+        let image: String
     }
     
     struct NFT: Codable {
@@ -55,5 +48,17 @@ struct NftsResponse: Codable {
             self.created_date = try AssettContainer.decode(String.self, forKey: .created_date)
             self.address = try AssettContainer.decode(String.self, forKey: .address)
         }
+    }
+    
+    enum ArraysKeys: String, CodingKey {
+        case title_nfts
+        case nfts
+    }
+    
+    init(from decoder: Decoder) throws {
+        let ArrayContainer = try decoder.container(keyedBy: ArraysKeys.self)
+        
+        self.title_nfts = try ArrayContainer.decode([NFTTitle].self, forKey: .title_nfts)
+        self.nfts = try ArrayContainer.decode([NFT].self, forKey: .nfts)
     }
 }
