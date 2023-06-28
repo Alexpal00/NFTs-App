@@ -4,9 +4,6 @@
 //
 //  Created by Alexandros on 15/5/23.
 //
-
-import UIKit
-
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
@@ -15,6 +12,7 @@ class CustomTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var adresLabel: UILabel!
+    @IBOutlet weak var CellImageView : UIImageView!
     
     // MARK: - Properties
     
@@ -24,7 +22,15 @@ class CustomTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        nameLabel.numberOfLines = 0
+        nameLabel.lineBreakMode = .byTruncatingTail
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+    }
+
 
     // MARK: - Methods
     
@@ -41,5 +47,10 @@ class CustomTableViewCell: UITableViewCell {
     */
         nameLabel.text = nft.name?.capitalized
         adresLabel.text = nft.address?.capitalized
+        
+        if let imgUrl = nft.image_url, let url = URL(string: imgUrl){
+            CellImageView.downloaded(from: url)
+        }
+
 }
 }
