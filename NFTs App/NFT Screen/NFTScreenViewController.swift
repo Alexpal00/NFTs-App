@@ -45,7 +45,8 @@ class NFTScreenViewController: UIViewController {
         //Set data source and delegate
         tableView?.delegate = self
         tableView?.dataSource = self
-       /*
+       
+        /*
         downloadJSON {
             self.tableView?.reloadData()
             print("success")
@@ -72,47 +73,7 @@ class NFTScreenViewController: UIViewController {
                 }
             }
     
-    //Parsing JSON via URL
-  /*
-    func downloadJSON(completed: @escaping () -> ()) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            guard let url = URL(string: "https://public.arx.net/~chris2/nfts1.json") else {
-                print("Invalid URL")
-                DispatchQueue.main.async {
-                    self.showEmptyView(with: "Invalid URL")
-                }
-                return
-            }
-            guard let data = try? Data(contentsOf: url) else {
-                DispatchQueue.main.async {
-                    self.showEmptyView(with: "Unable to fetch JSON data")
-                }
-                return
-            }
-            
-            guard let nftsResponse = try? JSONDecoder().decode(NftsResponse.self, from: data) else {
-                DispatchQueue.main.async {
-                    self.showEmptyView(with: "Invalid JSON data")
-                }
-                return
-            }
-            
-            self.data.removeAll()
-            self.nfts.append(nftsResponse) // Emfanizei ola ta customCell apo to JSON me ta enum (5)
-            
-            self.data.append(.banner(nfts: [nftsResponse]))
-            
-            for nft in nftsResponse.nfts {
-                self.data.append(.element(nft: nft))
-            }
-            
-            DispatchQueue.main.async {
-                self.hideEmptyView()
-                completed()
-            }
-        }
-    }
-    */
+    
     
     //Parsing JSON from local file
     
@@ -142,8 +103,9 @@ class NFTScreenViewController: UIViewController {
                 print("Error decoding JSON: \(error)")
             }
         }
-    }
-    /*
+    
+    
+    
     func updateTableViewData() {
             data.removeAll()
             
@@ -153,16 +115,23 @@ class NFTScreenViewController: UIViewController {
             }
             
             // Add the element data
-            for nft in titleNFTS {
-                data.append(.element(nft: nft))
-            }
+        
+        //for nft in titleNFTS {
+               // data.append(.element(nft: nft))
+           // }
+        
+        for nftResponse in titleNFTS {
+               for nft in nftResponse.nfts {
+                   data.append(.element(nft: nft))
+               }
+           }
             
             // Reload the table view
             tableView?.reloadData()
         }
-    */
     
-    /*
+    
+    
     func showEmptyView(with message: String) {
         emptyView = EmptyView(delegate: self, message: message)
         view.addSubview(emptyView!)
@@ -172,5 +141,6 @@ class NFTScreenViewController: UIViewController {
         emptyView?.removeFromSuperview()
         emptyView = nil
     }
-    */
+}
+
 
